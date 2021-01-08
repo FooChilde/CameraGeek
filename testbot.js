@@ -4,11 +4,17 @@
 //GitHub (https://github.com/michaellfoo/CameraGeek)
 
 const Discord = require("discord.js");
-const config = require("./config.json");
+const config = require("./testConfig.json");
 
 const client = new Discord.Client();
 
-const prefix = "!";
+client.on('ready', () => {
+  console.log('The client is ready!');
+})
+
+client.login(config.BOT_TOKEN);
+
+const prefix = ":";
 
 //Message functions
 client.on("message", function(message) {
@@ -16,11 +22,18 @@ client.on("message", function(message) {
 //Ignore other bots
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+//
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 
+//Help command
+  if (command === "help") {
+    message.channel.send(`Here is a list of my supported commands:\n**args-info:**`);
+    return;
+  }
+
 //Ping function
-  if (command === "ping") {
+  else if (command === "ping") {
     const timeTaken = Date.now() - message.createdTimestamp;
     message.reply(`Pong! This message had a latency of ${timeTaken}ms.`);
   }
@@ -28,13 +41,14 @@ client.on("message", function(message) {
 //Tests for arguments
   else if (command === 'args-info') {
     if (!args.length) {
-      return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+      message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+      return;
     }
 
     message.channel.send(`Command name: ${command}\nArguments: ${args}`);
   }
 
-//Start CameraGeek functions
+//Start CameraGeek commands
 
 //Converts feet into meters
   else if (command === "meters") {
@@ -77,7 +91,7 @@ client.on("message", function(message) {
       let dioFullFt = Number((dioFull * 3.3).toFixed(1));
       let dioTwoFt = Number((dioTwo * 3.3).toFixed(1));
       let dioThreeFt = Number((dioThree * 3.3).toFixed(1));
-      message.reply(`\nPlus half dio: ${dioHalfFt}ft.\nPlus 1 dio: ${dioFullFt}ft.\nPlus 2 dio: ${dioTwoFt}ft.\nPlus 3 dio: ${dioThreeFt}ft.`);
+      message.reply(`minimum focus will be the following...\n+1/2 Dio: ${dioHalfFt}ft.\n+1 Dio: ${dioFullFt}ft.\n+2 Dio: ${dioTwoFt}ft.\n+3 Dio: ${dioThreeFt}ft.`);
       return;
     }
 
@@ -91,7 +105,7 @@ client.on("message", function(message) {
       let dioFullFt = Number(((dioFull * 3.3) * 12).toFixed(0));
       let dioTwoFt = Number(((dioTwo * 3.3) * 12).toFixed(0));
       let dioThreeFt = Number(((dioThree * 3.3) * 12).toFixed(0));
-      message.reply(`\nPlus half dio: ${dioHalfFt}in.\nPlus 1 dio: ${dioFullFt}in.\nPlus 2 dio: ${dioTwoFt}in.\nPlus 3 dio: ${dioThreeFt}in.`);
+      message.reply(`minimum focus will be the following...\n+1/2 Dio: ${dioHalfFt}in.\n+1 Dio: ${dioFullFt}in.\n+2 Dio: ${dioTwoFt}in.\n+3 Dio: ${dioThreeFt}in.`);
       return;
     }
 
@@ -100,7 +114,7 @@ client.on("message", function(message) {
       let dioFull = Number((closeFocus/((1 * closeFocus) + 1)).toFixed(2));
       let dioTwo = Number((closeFocus/((2 * closeFocus) + 1)).toFixed(2));
       let dioThree = Number((closeFocus/((3 * closeFocus) + 1)).toFixed(2));
-      message.reply(`\nPlus half dio: ${dioHalf}m.\nPlus 1 dio: ${dioFull}m.\nPlus 2 dio: ${dioTwo}m.\nPlus 3 dio: ${dioThree}m.`);
+      message.reply(`minimum focus will be the following...\n+1/2 Dio: ${dioHalf}m.\n+1 Dio: ${dioFull}m.\n+2 Dio: ${dioTwo}m.\n+3 Dio: ${dioThree}m.`);
       return;
     }
 
@@ -112,5 +126,3 @@ client.on("message", function(message) {
     return;
   }
 });
-
-client.login(config.BOT_TOKEN);

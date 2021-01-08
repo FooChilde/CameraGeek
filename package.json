@@ -1,20 +1,20 @@
 {
-  "name": "cameranerd",
-  "version": "0.0.1",
-  "description": "A Discord bot to help with various cinema camera related things. A work in progress.",
+  "name": "CameraGeek",
+  "version": "0.1.0",
+  "description": "A Discord bot for Camera Department. A work in progress.",
   "main": "index.js",
   "scripts": {
-    "test": "bokeh"
+    "test": "!check"
   },
   "repository": {
     "type": "git",
-    "url": "cameranerd"
+    "url": "CameraGeek"
   },
   "keywords": [
     "camera"
   ],
   "author": "Michael L. Foo",
-  "license": "ISC",
+  "license": "GNU 3.0",
   "dependencies": {
     "discord.js": "^12.5.1"
   }
