@@ -1,3 +1,8 @@
+//CameraGeek
+//A Discord bot for Camera Department
+//Written by Michael L. Foo
+//GitHub (https://github.com/michaellfoo/CameraGeek)
+
 const Discord = require("discord.js");
 const config = require("./config.json");
 
@@ -5,18 +10,22 @@ const client = new Discord.Client();
 
 const prefix = "!";
 
+//Message functions
 client.on("message", function(message) {
 
+//Ignore other bots
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 
+//Ping function
   if (command === "ping") {
     const timeTaken = Date.now() - message.createdTimestamp;
     message.reply(`Pong! This message had a latency of ${timeTaken}ms.`);
   }
 
+//Tests for arguments
   else if (command === 'args-info') {
     if (!args.length) {
       return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
@@ -25,6 +34,9 @@ client.on("message", function(message) {
     message.channel.send(`Command name: ${command}\nArguments: ${args}`);
   }
 
+//Start CameraGeek functions
+
+//Converts feet into meters
   else if (command === "meters") {
     if (!args.length) {
       return message.channel.send(`You didn't provide a distance in feet (decimal), ${message.author}!`);
@@ -35,6 +47,7 @@ client.on("message", function(message) {
     message.reply(`\n${args}ft is ~${distanceMeters}m.`);
   }
 
+//Converts meters into feet
   else if (command === "feet") {
     if (!args.length) {
       return message.channel.send(`You didn't provide a distance in meters (decimal), ${message.author}!`);
@@ -45,6 +58,7 @@ client.on("message", function(message) {
     message.reply(`\n${args}m is ~${distanceFeet}ft.`);
   }
 
+//Calculates close focus for diopters, works in inches, feet and meters
   else if (command === "diopter") {
     if (!args.length) {
       return message.channel.send(`You didn't provide a distance unit and close focus, ${message.author}!`);
@@ -93,6 +107,7 @@ client.on("message", function(message) {
     //message.reply(`\nPlus half dio: ${dioHalf}m.\nPlus 1 dio: ${dioFull}m.\nPlus 2 dio: ${dioTwo}m.\nPlus 3 dio: ${dioThree}m.`);
   }
 
+//Mic Check
   else if (command === "check") {
     message.reply(`Good check!`);
     return;

@@ -1,0 +1,725 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pa",
+				"padding-top\tproperty"
+			],
+			[
+				"padding",
+				"padding-left\tproperty"
+			],
+			[
+				"stat",
+				"statIconB"
+			],
+			[
+				"fon",
+				"font-size\tproperty"
+			],
+			[
+				"text",
+				"text-shadow\tproperty"
+			],
+			[
+				"bac",
+				"background-size\tproperty"
+			],
+			[
+				"padd",
+				"padding-left\tproperty"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"max",
+				"max-width\tproperty"
+			],
+			[
+				"contain",
+				"container-fluid"
+			],
+			[
+				"margin",
+				"margin\tproperty"
+			],
+			[
+				"he",
+				"min-height\tproperty"
+			],
+			[
+				"back",
+				"background-size\tproperty"
+			],
+			[
+				"col",
+				"col-sm-12"
+			],
+			[
+				"ju",
+				"justify-content-center"
+			],
+			[
+				"contai",
+				"container-fluid"
+			],
+			[
+				"tables",
+				"tableStatsColumnC"
+			],
+			[
+				"tableStat",
+				"tableStatsColumnB"
+			],
+			[
+				"col-md",
+				"col-md-8"
+			],
+			[
+				"tex",
+				"text-align\tproperty"
+			],
+			[
+				"min",
+				"min-width\tproperty"
+			],
+			[
+				"lvl",
+				"lvlConstitution"
+			],
+			[
+				"lvlC",
+				"lvlConstitution"
+			],
+			[
+				"lvlMa",
+				"lvlMagic"
+			],
+			[
+				"pad",
+				"padding-bottom\tproperty"
+			],
+			[
+				"ali",
+				"align-content\tproperty"
+			],
+			[
+				"margi",
+				"margin-bottom\tproperty"
+			],
+			[
+				"mar",
+				"margin-bottom\tproperty"
+			],
+			[
+				"val",
+				"validateStarting"
+			],
+			[
+				"table",
+				"table-column-group\tdisplay"
+			],
+			[
+				"bor",
+				"border-top-style\tproperty"
+			],
+			[
+				"wi",
+				"column-width\tproperty"
+			],
+			[
+				"rbg",
+				"rgba()\tcolor"
+			],
+			[
+				"paddi",
+				"padding-left\tproperty"
+			],
+			[
+				"border-co",
+				"border-color\tproperty"
+			],
+			[
+				"in",
+				"inline-block\tdisplay"
+			],
+			[
+				"baseCo",
+				"baseConstitution"
+			],
+			[
+				"statLife",
+				"statLifeConstitution"
+			],
+			[
+				"base",
+				"baseSkill"
+			],
+			[
+				"star",
+				"startingDualSwords"
+			],
+			[
+				"updt",
+				"updateBuild"
+			],
+			[
+				"updat",
+				"updateBuild"
+			],
+			[
+				"up",
+				"updateMagic"
+			],
+			[
+				"upd",
+				"updateMagic"
+			],
+			[
+				"upda",
+				"updateStamina"
+			],
+			[
+				"check",
+				"checked"
+			],
+			[
+				"te",
+				"textContent"
+			],
+			[
+				"Ge",
+				"getElementsByName"
+			],
+			[
+				"statOnmy",
+				"statOnmyoMagicCapacityMagic"
+			],
+			[
+				"baseOnmy",
+				"baseOnmyoMagicCapacity"
+			],
+			[
+				"statOn",
+				"statOnmyoMagicPowerCourage"
+			],
+			[
+				"statLif",
+				"statLifeConstitution"
+			],
+			[
+				"baseC",
+				"baseCourage"
+			],
+			[
+				"statO",
+				"statOnmyoMagicPowerMagic"
+			],
+			[
+				"chang",
+				"changeTotalLife"
+			],
+			[
+				"cha",
+				"changeTotalLevel"
+			],
+			[
+				"chan",
+				"changeTotalDefenseParalysis"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"statOnm",
+				"statOnmyoMagicPowerMagic"
+			],
+			[
+				"statEqu",
+				"statEquipmentWeightMaxStamina"
+			],
+			[
+				"statKi",
+				"statKiRecoveryCourage"
+			],
+			[
+				"font-st",
+				"font-style\tproperty"
+			],
+			[
+				"hea",
+				"headerImage"
+			],
+			[
+				"font-",
+				"font-style\tproperty"
+			],
+			[
+				"backgr",
+				"background-color\tproperty"
+			],
+			[
+				"statKiRe",
+				"statKiRecoveryCourage"
+			],
+			[
+				"baseKi",
+				"baseKiRecovery"
+			],
+			[
+				"border",
+				"border-width\tproperty"
+			],
+			[
+				"font",
+				"font-family\tproperty"
+			],
+			[
+				"al",
+				"vertical-align\tproperty"
+			],
+			[
+				"border-",
+				"border-style\tproperty"
+			],
+			[
+				"sta",
+				"statDefensePoisonConstitution"
+			],
+			[
+				"st",
+				"statKiHeart"
+			],
+			[
+				"total",
+				"totalHeart"
+			],
+			[
+				"s",
+				"script"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"bord",
+				"border-width\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.js",
+			"settings":
+			{
+				"buffer_size": 3835,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment File Settings – Default"
+			],
+			[
+				"side",
+				"Side Bar: Enable Syncing"
+			],
+			[
+				"ty",
+				"Typewriter: Scrolling Mode (Toggle)"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+			"node index.js",
+			"npm init",
+			"npm install discord.js",
+			"$ npm init",
+			"npm init",
+			"npm",
+			"npm init",
+			"npm"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek"
+	],
+	"file_history":
+	[
+		"/C/Users/fooji/Desktop/CameraNerd/index.js",
+		"/C/Users/fooji/Desktop/CameraNerd/config.json",
+		"/C/Users/fooji/Desktop/DOS.ct",
+		"/C/Users/fooji/Desktop/HideBackpacks.dll",
+		"/E/SteamLibrary/steamapps/common/Outward/Mods/ModConfigs/GAuth_VanityMod.config",
+		"/C/Users/fooji/Desktop/SoulsModding/DS3/DS3_The-Grand-Archives.CT",
+		"/E/SteamLibrary/steamapps/common/Outward/Mods/GAuth_VanityMod.dll",
+		"/E/SteamLibrary/steamapps/common/Sekiro/run.vbs",
+		"/E/SteamLibrary/steamapps/common/Outward/Player0_Keymappings.xml",
+		"/C/Users/fooji/Desktop/ModEngine-0.1.11/modengine.ini",
+		"/E/SteamLibrary/steamapps/common/Sekiro/modengine.ini",
+		"/C/Users/fooji/Desktop/WebDevBootcampStuff/index.html",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/AutoBackupTool/run.vbs",
+		"/C/Users/fooji/Desktop/WebDevBootcampStuff/script.js",
+		"/C/Users/fooji/Desktop/WebDevBootcampStuff/11_Pattern_Project/Starter/index.html",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/Game/wex_dust_config.txt",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/Game/honestMerchant.ini",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/Game/AshesLauncher/Disabled/honestMerchant.ini",
+		"/C/Users/fooji/Desktop/Pyre-Protecc.V4/Config.txt",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/Game/AshesLauncher/Ashes/modengine.ini",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/Game/AshesLauncher/Ashes/honestMerchant.ini",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/Game/modengine.ini",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/AutoBackupTool/source.cpp",
+		"/C/Users/fooji/Desktop/AutoBackupTool/run.vbs",
+		"/C/Users/fooji/Desktop/AutoBackupTool/DSIIIRunwBackup.bat",
+		"/C/Users/fooji/Desktop/AutoBackupTool/settings.ini",
+		"/C/Users/fooji/AppData/Roaming/DarkSoulsIII/011000010308448e/DS30000.sl2",
+		"/C/Program Files (x86)/Microsoft Visual Studio/2019/Community/run.vbs",
+		"/C/Users/fooji/Desktop/auto.bat",
+		"/C/Users/fooji/Desktop/run.vbs",
+		"/E/SteamLibrary/steamapps/common/Sekiro/reshade-shaders/Shaders/OtisFX/CinematicDOF.fx",
+		"/E/SteamLibrary/steamapps/common/Sekiro/ReShade.ini",
+		"/C/Users/fooji/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/AbletonCopyAndRun.bat",
+		"/C/Users/fooji/Desktop/README.txt",
+		"/C/Users/fooji/Desktop/Sheath/gameparam-parambnd-dcx/param/GameParam/DecalParam.param",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/README.txt",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/bd_m_9000-partsbnd-dcx/parts/FullBody/BD_M_9000/material.txt",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/wp_a_0300-partsbnd-dcx/parts/Weapon/WP_A_0300/WP_A_0300-tpf/_yabber-tpf.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/bd_m_9000-partsbnd-dcx/_yabber-bnd4.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/bd_m_9030-partsbnd-dcx/_yabber-bnd4.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/bd_m_9030-partsbnd-dcx/parts/FullBody/BD_M_9030/BD_M_9030-tpf/_yabber-tpf.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/bd_m_9030-partsbnd-dcx/parts/FullBody/BD_M_9040/BD_M_9040-tpf/_yabber-tpf.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/bd_m_9000-partsbnd-dcx/parts/FullBody/BD_M_9040/BD_M_9000-tpf/_yabber-tpf.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/wp_a_0310-partsbnd-dcx/_yabber-bnd4.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/bd_m_9040-partsbnd-dcx/parts/FullBody/BD_M_9040/BD_M_9040-tpf/_yabber-tpf.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/bd_m_9040-partsbnd-dcx/_yabber-bnd4.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/wp_a_0300-partsbnd-dcx/parts/Weapon/WP_A_0300/WP_A_0300-tpf/Material.json",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/lg_m_9000-partsbnd-dcx/_yabber-bnd4.xml",
+		"/C/Users/fooji/Desktop/SoulsModding/Sekiro/MugenOutfit/parts/wp_a_0300-partsbnd-dcx/parts/Weapon/WP_A_0310/WP_A_0310-tpf/_yabber-tpf.xml",
+		"/C/Users/fooji/Desktop/param/gameparam/gameparam.parambnd.dcx",
+		"/E/SteamLibrary/steamapps/common/DARK SOULS III/Game/DS3PWSettings.ini",
+		"/C/Program Files (x86)/Steam/steamapps/common/MGS_TPP/mod/profiles/Subsistence_Pure.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/MGS_TPP/mod/profiles/Subsistence_Game.lua",
+		"/C/Users/fooji/Documents/GitHub/Nioh2CharPlanner/v0.1/NiohCharPlanner.html",
+		"/C/Program Files (x86)/Steam/steamapps/common/MGS_TPP/mod/profiles/Subsistence_Bounder.lua",
+		"/C/Users/fooji/Documents/GitHub/Nioh2CharPlanner/v0.1/bootstrapStyle.css",
+		"/C/Users/fooji/Documents/GitHub/Nioh2CharPlanner/v0.1/style.css",
+		"/C/Users/fooji/Documents/GitHub/Nioh2CharPlanner/v0.1/coreStatArrays.js",
+		"/C/Users/fooji/Documents/GitHub/Nioh2CharPlanner/LICENSE.md",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharPlanner/v0.1/coreStatArrays.js",
+		"/C/Users/fooji/Documents/GitHub/Nioh2CharPlanner/README.md",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharPlanner/v0.1/NiohCharPlanner.html",
+		"/C/Users/fooji/Documents/GitHub/Nioh2CharPlanner/.gitignore",
+		"/C/Users/fooji/Documents/GitHub/Nioh2CharPlanner/README.txt",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharPlanner/v0.2/NiohCharPlanner.html",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharPlanner/v0.2/coreStatArrays.js",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharPlanner/v0.2/style.css",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharPlanner/v0.2/LICENSE",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.2/style.css",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.2/coreStatArrays.js",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.2/NiohCharBuilder.sublime-project",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.2/NiohCharPlanner.html",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.2/NiohCharBuilder.html",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.2/scripts/style.css",
+		"/C/Users/fooji/AppData/Roaming/Sublime Text 3/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/fooji/AppData/Roaming/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/C/Users/fooji/AppData/Roaming/Sublime Text 3/Packages/Terminal/Base File.sublime-settings",
+		"/C/Users/fooji/AppData/Roaming/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/C/Users/fooji/AppData/Roaming/Sublime Text 3/Packages/SyncedSideBar/SyncedSideBar.sublime-settings",
+		"/C/Users/fooji/AppData/Roaming/Sublime Text 3/Packages/User/SyncedSideBar.sublime-settings",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.1/scripts/CoreStatArrays.js",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.1/style.css",
+		"/C/Users/fooji/Documents/SublimeTextDocs/NiohCharBuilder/v0.1/CoreStatArrays.js",
+		"/C/Users/fooji/AppData/Roaming/Sublime Text 3/Packages/User/Typewriter.sublime-settings",
+		"/C/Users/fooji/AppData/Roaming/Sublime Text 3/Packages/Typewriter/Typewriter.sublime-settings",
+		"/C/Users/fooji/Documents/SublimeTextDocs/portfolioStyle.css",
+		"/C/Users/fooji/Documents/SublimeTextDocs/photoGrid.html",
+		"/C/Users/fooji/Documents/SublimeTextDocs/firstPage.html",
+		"/C/Users/fooji/Documents/SublimeTextDocs/selectorsExercise.html",
+		"/C/Users/fooji/Documents/SublimeTextDocs/selectors.css",
+		"/C/Users/fooji/Documents/SublimeTextDocs/style.css",
+		"/C/Users/fooji/Documents/SublimeTextDocs/home.html"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 161.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 33.0
+	},
+	"input":
+	{
+		"height": 72.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 180.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 204.0
+	},
+	"pinned_build_system": "",
+	"project": "CameraGeek.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 190.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
