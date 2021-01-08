@@ -1,4 +1,4 @@
-# CameraNerd
+# CameraGeek
  A Discord bot to help with cinema camera related things.
 
 <!--
@@ -26,7 +26,7 @@ Click the widget below to join.
 <br />
 <p align="center">
   <a href="https://https://github.com/michaellfoo/CameraGeek">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">CameraGeek</h3>
