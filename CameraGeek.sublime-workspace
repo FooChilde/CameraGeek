@@ -390,11 +390,13 @@
 	],
 	"file_history":
 	[
-		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/README.md",
 		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/config.json",
-		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/testbot.js",
 		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/index.js",
+		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/testbot.js",
 		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/testConfig.json",
+		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/banList.log",
+		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/warnList.log",
+		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/README.md",
 		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/reply-message.js",
 		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/command.js",
 		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/.gitignore",
@@ -510,6 +512,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"#DAF7A6",
 			"test",
 			"nerd",
 			"project_description",
@@ -581,6 +584,10 @@
 	{
 		"height": 0.0
 	},
+	"output.nodejs":
+	{
+		"height": 192.0
+	},
 	"output.unsaved_changes":
 	{
 		"height": 204.0
@@ -627,7 +634,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 190.0,
+	"side_bar_width": 226.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
