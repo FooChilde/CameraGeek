@@ -322,11 +322,11 @@ client.on(`ready`, () => {
         if (format == '8') {
           let secPerFoot = (film8[0] / fps);
           let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
-          // console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
-          let magMinutes = Number(rolloutTime / 60).toFixed(0);
+          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
           let magSeconds = Number(rolloutTime % 60).toFixed(2);
           let shotFrames = Number(film8[0] * magSize).toFixed(0);
-          if (magMinutes > 1) {
+          if (rolloutTime > 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of Super8mm @${fps}fps`)
@@ -336,7 +336,7 @@ client.on(`ready`, () => {
               )
             message.channel.send(embed);
           }
-          if (magMinutes < 1) {
+          if (rolloutTime < 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of Super8mm @${fps}fps`)
@@ -352,10 +352,10 @@ client.on(`ready`, () => {
           let secPerFoot = (film16[0] / fps);
           let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
           console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
-          let magMinutes = Number(rolloutTime / 60).toFixed(0);
+          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
           let magSeconds = Number(rolloutTime % 60).toFixed(2);
           let shotFrames = Number(film16[0] * magSize).toFixed(0);
-          if (magMinutes > 1) {
+          if (rolloutTime > 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 16mm @${fps}fps`)
@@ -365,7 +365,7 @@ client.on(`ready`, () => {
               )
             message.channel.send(embed);
           }
-          if (magMinutes < 1) {
+          if (rolloutTime < 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 16mm @${fps}fps`)
@@ -381,10 +381,10 @@ client.on(`ready`, () => {
           let secPerFoot = (film35[0] / fps);
           let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
           console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
-          let magMinutes = Number(rolloutTime / 60).toFixed(0);
+          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
           let magSeconds = Number(rolloutTime % 60).toFixed(2);
           let shotFrames = Number(film35[0] * magSize).toFixed(0);
-          if (magMinutes > 1) {
+          if (rolloutTime > 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 35mm @${fps}fps`)
@@ -394,7 +394,7 @@ client.on(`ready`, () => {
               )
             message.channel.send(embed);
           }
-          if (magMinutes < 1) {
+          if (rolloutTime < 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 35mm @${fps}fps`)
@@ -410,10 +410,10 @@ client.on(`ready`, () => {
           let secPerFoot = (film353perf[0] / fps);
           let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
           console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
-          let magMinutes = Number(rolloutTime / 60);
+          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
           let magSeconds = Number(rolloutTime % 60);
           let shotFrames = Number(film353perf[0] * magSize).toFixed(0);
-          if (magMinutes > 1) {
+          if (rolloutTime > 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 35mm 3-perf @${fps}fps`)
@@ -423,7 +423,7 @@ client.on(`ready`, () => {
               )
             message.channel.send(embed);
           }
-          if (magMinutes < 1) {
+          if (rolloutTime < 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 35mm 3-perf @${fps}fps`)
@@ -439,10 +439,10 @@ client.on(`ready`, () => {
           let secPerFoot = (film352perf[0] / fps);
           let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
           console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
-          let magMinutes = Number(rolloutTime / 60);
+          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
           let magSeconds = Number(rolloutTime % 60);
           let shotFrames = Number(film352perf[0] * magSize).toFixed(0);
-          if (magMinutes > 1) {
+          if (rolloutTime > 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 35mm 2-perf @${fps}fps`)
@@ -452,7 +452,7 @@ client.on(`ready`, () => {
               )
             message.channel.send(embed);
           }
-          if (magMinutes < 1) {
+          if (rolloutTime < 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 35mm 2-perf @${fps}fps`)
@@ -468,10 +468,10 @@ client.on(`ready`, () => {
           let secPerFoot = (film65[0] / fps);
           let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
           console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
-          let magMinutes = Number(rolloutTime / 60).toFixed(0);
+          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
           let magSeconds = Number(rolloutTime % 60).toFixed(2);
           let shotFrames = Number(film65[0] * magSize).toFixed(0);
-          if (magMinutes > 1) {
+          if (rolloutTime > 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 65mm @${fps}fps`)
@@ -481,7 +481,7 @@ client.on(`ready`, () => {
               )
             message.channel.send(embed);
           }
-          if (magMinutes < 1) {
+          if (rolloutTime < 60) {
             const embed = new Discord.MessageEmbed()
               .setColor('#ffa13d')
               .setTitle(`${magSize}ft mag of 65mm @${fps}fps`)
