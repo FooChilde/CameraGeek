@@ -316,10 +316,13 @@
 	"buffers":
 	[
 		{
+			"contents": "//CameraGeek\n//A Discord bot for Camera Department\n//Written by Michael L. Foo\n//GitHub (https://github.com/michaellfoo/CameraGeek)\n// var forever = require('forever-monitor');\n\n// var child = new (forever.Monitor)('index.js', {\n//   max: 3,\n//   silent: true,\n//   args: []\n// });\n\n// child.on('exit', function () {\n//   console.log('index.js has exited after 3 restarts');\n// });\n\n// child.start();\n\nconst Discord = require(\"discord.js\");\nconst config = require(\"./testConfig.json\");\n\nconst client = new Discord.Client();\n\nconst prefix = \">\";\n\nclient.on(`ready`, () => {\n  console.log(`Logged in as ${client.user.tag}!`)\n\n\n  //Message functions\n  client.on(\"message\", function(message) {\n\n    //Ignore other bots\n      if (!message.content.startsWith(prefix) || message.author.bot) return;\n\n    //Trim prefix from command and find args\n      const args = message.content.slice(prefix.length).trim().split(/ +/);\n      const command = args.shift().toLowerCase();\n\n    //Help function\n      if (command === \"help\" && args[0] == null) {\n        console.log(`Serching for help with the following arguments: ${args}`);\n        const embed = new Discord.MessageEmbed()\n          .setTitle(`CameraGeek Commands Help`)\n          .setColor('#ffa13d')\n          .addFields(\n            {\n              name:  `Here is a list of my supported commands:`,\n              value: `-----------------------------------\\n\n                      diopter <unit> <distance> - Finds close focus with different diopter strengths.\\n\n                      findfeet <distance in meters> - Converts meters to feet.\\n\n                      findmeters <distance in feet> - Converts feet to meters.\\n\n                      miccheck - Checks to see if CameraGeek is on walkie!\\n\n                      ping - Shows message latency.\\n\n                      rollout <format> <fps> <mag size> - Calculates the shoot time of a length of film at a given frame rate.\\n\n                      version - Shows current CameraGeek version number. (For development purposes)\\n`\n            }\n          )\n        message.channel.send(embed);\n        return;\n      }\n      if (command === \"help\" && args[0] === \"diopter\") {\n        console.log(`Serching for help with the following arguments: ${args}`);\n        const embed = new Discord.MessageEmbed()\n          .setTitle(`Diopter Help`)\n          .setColor('#ffa13d')\n          .addFields(\n            {\n              name:  `\\\\diopter <unit> <close focus>`,\n              value: `Finds the close focus of a lens with different diopter strengths.\\n\n                      Uses the formula: f / (( d * f ) + 1 )\\n\n                      f = original close focus\\n\n                      d = diopter strength`\n            }\n          )\n        message.channel.send(embed);\n        return;          \n      }\n      else if (command === \"help\" && args[0] === \"findfeet\") {\n        console.log(`Serching for help with the following arguments: ${args}`);\n        const embed = new Discord.MessageEmbed()\n        .setTitle(`Find Feet Help`)\n        .setColor('#ffa13d')\n        .addFields(\n          {\n            name:  `\\\\findfeet <distance in meters>`,\n            value: `Converts meters into feet.\\n\n                    Approximates to ~3.3 feet per meter.`\n          }\n        )\n        message.channel.send(embed);\n        return;\n      }\n      else if (command === \"help\" && args[0] === \"findmeters\") {\n        console.log(`Serching for help with the following arguments: ${args}`);\n        const embed = new Discord.MessageEmbed()\n        .setTitle(`Find Meters Help`)\n        .setColor('#ffa13d')\n        .addFields(\n          {\n            name:  `\\\\findmeters <distance in feet>`,\n            value: `Converts feet into meters.\\n\n                    Approximates to ~3.3 feet per meter.`\n          }\n        )\n        message.channel.send(embed);\n        return;\n      }\n      else if (command === \"help\" && args[0] === \"rollout\") {\n        console.log(`Serching for help with the following arguments: ${args}`);\n        const embed = new Discord.MessageEmbed()\n        .setTitle(`Rollout Help`)\n        .setColor('#ffa13d')\n        .addFields(\n          {\n            name:  `\\\\rollout <format> <frame rate> <mag length>`,\n            value: `Calculates the shoot time of a length of film at a given frame rate.\\n\n                    Available formats:\\n\n                    <8> - Super8mm\\n\n                    <16> - 16mm\\n\n                    <35> - 35mm 4-perf\\n\n                    <353perf> - 35mm 3-perf\\n\n                    <352perf> - 35mm 2-perf\\n\n                    <65> - 65mm`\n          }\n        )\n        message.channel.send(embed);\n        return;\n      }\n\n    //Help template\n      // else if (command === \"help\" && args[0] === \"\") {\n      //   console.log(`Serching for help with the following arguments: ${args}`);\n      //   const embed = new Discord.MessageEmbed()\n      //   .setTitle(``)\n      //   .setColor('#ffa13d')\n      //   .addFields(\n      //     {\n      //       name:  `\\\\command <arg1> <arg2>`,\n      //       value: `\\n\n      //               \\n\n      //               \\n\n      //               `\n      //     }\n      //   )\n      //   message.channel.send(embed);\n      //   return;\n      // }\n\n\n\n    //Devhelp function\n      if (command === \"dev\") {\n        if (message.member.roles.cache.find(r => r.name === \"Developer\")) {\n          console.log(`${Date.now()}: User is a dev, replying...`)\n          const embed = new Discord.MessageEmbed()\n            .setTitle(`CameraGeek Developer Command Help`)\n            .setColor('#ffa13d')\n            .addFields(\n                {name: `Here is a list of supported developer commands:`,\n                value: `-----------------------------------\\n\n                        miccheck - Checks is CameraGeek is on walkie!\\n\n                        version - Shows current CameraGeek version number. (For development purposes)\\n`}\n            )\n          message.channel.send(embed);\n          return;\n        }\n        else {\n          message.channel.send(`Sorry ${message.author}, it doesn't look like you're a developer. Contact one of them if you'd like to contribute to the project!`);\n          return;\n        }\n      }\n\n    //CameraGeek developer functions\n\n    //Tests for arguments\n      else if (command === \"args-info\") {\n        if (!args.length) {\n          return message.channel.send(`You didn't provide any arguments, ${message.author}!`);\n        }\n        message.channel.send(`Command name: ${command}\\nArguments: ${args}`);\n        return;\n      }\n\n    //Start CameraGeek main functions\n\n    //Calculates close focus for diopters, works in inches, feet and meters\n      else if (command === \"diopter\") {\n        if (!args.length) {\n          return message.channel.send(`You didn't provide a distance unit and close focus, ${message.author}!`);\n        }\n\n        let [unit, closeFocus] = args;\n\n\n        if (unit === \"ft\") {\n          let closeFocusM = closeFocus / 3.3;\n          let dioHalf = (closeFocusM/((.5 * closeFocusM) + 1));\n          let dioFull = (closeFocusM/((1 * closeFocusM) + 1));\n          let dioTwo = (closeFocusM/((2 * closeFocusM) + 1));\n          let dioThree = (closeFocusM/((3 * closeFocusM) + 1));\n          let dioHalfFt = Number((dioHalf * 3.3).toFixed(1));\n          let dioFullFt = Number((dioFull * 3.3).toFixed(1));\n          let dioTwoFt = Number((dioTwo * 3.3).toFixed(1));\n          let dioThreeFt = Number((dioThree * 3.3).toFixed(1));\n          const embed = new Discord.MessageEmbed()\n            .setTitle(`Close Focus with Diopter Strengths`)\n            .setColor('#ffa13d')\n            .addFields(\n                {name: `Original Close Focus is ${closeFocus}ft.`,\n                value: `---------------------------\\n\n                        +1/2 Diopter: ${dioHalfFt}ft.\\n\n                        +1 Diopter: ${dioFullFt}ft.\\n\n                        +2 Diopter: ${dioTwoFt}ft.\\n\n                        +3 Diopter: ${dioThreeFt}ft.`}\n            )\n          message.channel.send(embed);\n          return;\n        }\n\n        if (unit === \"in\") {\n          let closeFocusM = (closeFocus / 12) / 3.3;\n          let dioHalf = (closeFocusM/((.5 * closeFocusM) + 1));\n          let dioFull = (closeFocusM/((1 * closeFocusM) + 1));\n          let dioTwo = (closeFocusM/((2 * closeFocusM) + 1));\n          let dioThree = (closeFocusM/((3 * closeFocusM) + 1));\n          let dioHalfIn = Number(((dioHalf * 3.3) * 12).toFixed(0));\n          let dioFullIn = Number(((dioFull * 3.3) * 12).toFixed(0));\n          let dioTwoIn = Number(((dioTwo * 3.3) * 12).toFixed(0));\n          let dioThreeIn = Number(((dioThree * 3.3) * 12).toFixed(0));\n          const embed = new Discord.MessageEmbed()\n            .setTitle(`Close Focus with Diopter Strengths`)\n            .setColor('#ffa13d')\n            .addFields(\n                {name: `Original Close Focus is ${closeFocus}in.`,\n                value: `---------------------------\\n\n                        +1/2 Diopter: ${dioHalfIn}in.\\n\n                        +1 Diopter: ${dioFullIn}in.\\n\n                        +2 Diopter: ${dioTwoIn}in.\\n\n                        +3 Diopter: ${dioThreeIn}in.`}\n            )\n          message.channel.send(embed);\n          return;\n        }\n\n        if (unit === \"m\") {\n          let dioHalf = Number((closeFocus/((.5 * closeFocus) + 1)).toFixed(2));\n          let dioFull = Number((closeFocus/((1 * closeFocus) + 1)).toFixed(2));\n          let dioTwo = Number((closeFocus/((2 * closeFocus) + 1)).toFixed(2));\n          let dioThree = Number((closeFocus/((3 * closeFocus) + 1)).toFixed(2));\n          const embed = new Discord.MessageEmbed()\n            .setTitle(`Close Focus with Diopter Strengths`)\n            .setColor('#ffa13d')\n            .addFields(\n                {name: `Original Close Focus is ${closeFocus}m.`,\n                value: `---------------------------\\n\n                        +1/2 Diopter: ${dioHalf}m.\\n\n                        +1 Diopter: ${dioFull}m.\\n\n                        +2 Diopter: ${dioTwo}m.\\n\n                        +3 Diopter: ${dioThree}m.`}\n            )\n            message.channel.send(embed);\n          return;\n        }\n\n      }\n\n    //Converts feet into meters\n      else if (command === \"findmeters\") {\n        if (!args.length) {\n          return message.channel.send(`You didn't provide a distance in feet (decimal), ${message.author}!`);\n        }\n\n        let [distanceFeet] = args;\n        let distanceMeters = Number((distanceFeet / 3.3).toFixed(1));\n        const embed = new Discord.MessageEmbed()\n          .setColor('#ffa13d')\n          .addFields(\n              {name: `Feet to Meters`,\n              value: `${distanceFeet}ft is equal to ${distanceMeters}m.`}\n          )\n          message.channel.send(embed);\n          return;\n      }\n\n    //Converts meters into feet\n      else if (command === \"findfeet\") {\n        if (!args.length) {\n          return message.channel.send(`You didn't provide a distance in meters (decimal), ${message.author}!`);\n        }\n\n        let [distanceMeters] = args;\n        let distanceFeet = Number((distanceMeters * 3.3).toFixed(1));\n        const embed = new Discord.MessageEmbed()\n          .setColor('#ffa13d')\n          .addFields(\n              {name: `Meters to Feet`,\n              value: `${distanceMeters}m is equal to ${distanceFeet}ft.`}\n          )\n          message.channel.send(embed);\n          return;\n      }\n\n    //Mic Check\n      else if (command === \"miccheck\") {\n        message.reply(`Good check!`);\n        return;\n      }\n\n    //Ping function\n      if (command === \"ping\") {\n        const timeTaken = Date.now() - message.createdTimestamp;\n        message.reply(`Pong! This message had a latency of ${timeTaken}ms.`);\n        return;\n      }\n\n    //Rollout function\n      if (command === \"rollout\") {\n\n      let [format, fps, magSize] = args;\n      console.log(`User entered \\\\rollout for ${format}mm film @${fps}fps, ${magSize}ft mag.`);\n\n      const firlRef = ['frames per foot', 'feet per minute @ 24fps']\n      const film8 = [80, 18]\n      const film16 = [40, 36]\n      const film35 = [16, 90]\n      const film353perf = [21.333, 67.501]\n      const film352perf = [32, 45]\n      const film65 = [12.8, 112.5]\n\n        if (!args.length) {\n          return message.channel.send(`You didn't provide a format (in mm), frame rate or a foot length, ${message.author}! Type \"!help rollout\" for command syntax.`);\n        }\n\n        if (format == '8') {\n          let secPerFoot = (film8[0] / fps);\n          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds\n          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);\n          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);\n          let magSeconds = Number(rolloutTime % 60).toFixed(2);\n          let shotFrames = Number(film8[0] * magSize).toFixed(0);\n          if (rolloutTime > 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of Super8mm @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          if (rolloutTime < 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of Super8mm @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          return;\n        }\n        if (format == '16') {\n          let secPerFoot = (film16[0] / fps);\n          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds\n          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);\n          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);\n          let magSeconds = Number(rolloutTime % 60).toFixed(2);\n          let shotFrames = Number(film16[0] * magSize).toFixed(0);\n          if (rolloutTime > 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 16mm @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          if (rolloutTime < 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 16mm @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          return;\n        }\n        if (format == '35') {\n          let secPerFoot = (film35[0] / fps);\n          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds\n          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);\n          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);\n          let magSeconds = Number(rolloutTime % 60).toFixed(2);\n          let shotFrames = Number(film35[0] * magSize).toFixed(0);\n          if (rolloutTime > 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 35mm @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          if (rolloutTime < 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 35mm @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          return;\n        }\n        if (format == '353perf') {\n          let secPerFoot = (film353perf[0] / fps);\n          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds\n          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);\n          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);\n          let magSeconds = Number(rolloutTime % 60);\n          let shotFrames = Number(film353perf[0] * magSize).toFixed(0);\n          if (rolloutTime > 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 35mm 3-perf @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          if (rolloutTime < 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 35mm 3-perf @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          return;\n        }\n        if (format == '352perf') {\n          let secPerFoot = (film352perf[0] / fps);\n          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds\n          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);\n          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);\n          let magSeconds = Number(rolloutTime % 60);\n          let shotFrames = Number(film352perf[0] * magSize).toFixed(0);\n          if (rolloutTime > 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 35mm 2-perf @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          if (rolloutTime < 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 35mm 2-perf @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          return;\n        }\n        if (format == '65') {\n          let secPerFoot = (film65[0] / fps);\n          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds\n          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);\n          let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);\n          let magSeconds = Number(rolloutTime % 60).toFixed(2);\n          let shotFrames = Number(film65[0] * magSize).toFixed(0);\n          if (rolloutTime > 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 65mm @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          if (rolloutTime < 60) {\n            const embed = new Discord.MessageEmbed()\n              .setColor('#ffa13d')\n              .setTitle(`${magSize}ft mag of 65mm @${fps}fps`)\n              .addFields(\n                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,\n                  value: `In that time you can shoot up to ${shotFrames} frames!`}\n              )\n            message.channel.send(embed);\n          }\n          return;\n        }\n\n      }\n\n    //Version function\n      if (command === \"version\") {\n        message.reply(`CameraGeek is currently on ${config.version}!`);\n        return;\n      }\n\n  })\n\n})\nclient.login(config.token);",
 			"file": "testbot.js",
+			"file_size": 21824,
+			"file_write_time": 132548060195610284,
 			"settings":
 			{
-				"buffer_size": 21300,
+				"buffer_size": 21320,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -403,7 +406,9 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek"
+		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek",
+		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/node_modules",
+		"/C/Users/fooji/Desktop/CameraGeek/CameraGeek/node_modules/discord.js"
 	],
 	"file_history":
 	[
@@ -516,7 +521,7 @@
 	],
 	"find":
 	{
-		"height": 73.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -565,15 +570,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21300,
+						"buffer_size": 21320,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								608,
-								608
+								401,
+								401
 							]
 						],
 						"settings":
@@ -592,75 +597,70 @@
 								},
 								"unmatched":
 								{
-									"1":
-									[
-										571,
-										572
-									]
 								}
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 287.0,
+						"translation.y": 390.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
