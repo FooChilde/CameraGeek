@@ -66,7 +66,7 @@ client.on(`ready`, () => {
           .setColor('#ffa13d')
           .addFields(
             {
-              name:  `!diopter <unit> <close focus>`,
+              name:  `\\diopter <unit> <close focus>`,
               value: `Finds the close focus of a lens with different diopter strengths.\n
                       Uses the formula: f / (( d * f ) + 1 )\n
                       f = original close focus\n
@@ -83,7 +83,7 @@ client.on(`ready`, () => {
         .setColor('#ffa13d')
         .addFields(
           {
-            name:  `!findfeet <distance in meters>`,
+            name:  `\\findfeet <distance in meters>`,
             value: `Converts meters into feet.\n
                     Approximates to ~3.3 feet per meter.`
           }
@@ -98,7 +98,7 @@ client.on(`ready`, () => {
         .setColor('#ffa13d')
         .addFields(
           {
-            name:  `!findmeters <distance in feet>`,
+            name:  `\\findmeters <distance in feet>`,
             value: `Converts feet into meters.\n
                     Approximates to ~3.3 feet per meter.`
           }
@@ -113,7 +113,7 @@ client.on(`ready`, () => {
         .setColor('#ffa13d')
         .addFields(
           {
-            name:  `!rollout <format> <frame rate> <mag length>`,
+            name:  `\\rollout <format> <frame rate> <mag length>`,
             value: `Calculates the shoot time of a length of film at a given frame rate.\n
                     Available formats:\n
                     <8> - Super8mm\n
@@ -136,7 +136,7 @@ client.on(`ready`, () => {
       //   .setColor('#ffa13d')
       //   .addFields(
       //     {
-      //       name:  `!command <arg1> <arg2>`,
+      //       name:  `\\command <arg1> <arg2>`,
       //       value: `\n
       //               \n
       //               \n
@@ -318,7 +318,7 @@ client.on(`ready`, () => {
       if (command === "rollout") {
 
       let [format, fps, magSize] = args;
-      console.log(`User entered !rollout for ${format}mm film @${fps}fps, ${magSize}ft mag.`);
+      console.log(`User entered \\rollout for ${format}mm film @${fps}fps, ${magSize}ft mag.`);
 
       const firlRef = ['frames per foot', 'feet per minute @ 24fps']
       const film8 = [80, 18]
