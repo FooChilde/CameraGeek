@@ -39,10 +39,12 @@ client.on(`ready`, () => {
                       findmeters <distance in feet> - Converts feet to meters.\n
                       miccheck - Checks to see if CameraGeek is on walkie!\n
                       ping - Shows message latency.\n
+                      rollout <format> <fps> <mag size> - Calculates the shoot time of a length of film at a given frame rate.\n
                       version - Shows current CameraGeek version number. (For development purposes)\n`
             }
           )
         message.channel.send(embed);
+        return;
       }
       if (command === "help" && args[0] === "diopter") {
         console.log(`Serching for help with the following arguments: ${args}`);
@@ -91,6 +93,27 @@ client.on(`ready`, () => {
         message.channel.send(embed);
         return;
       }
+      else if (command === "help" && args[0] === "rollout") {
+        console.log(`Serching for help with the following arguments: ${args}`);
+        const embed = new Discord.MessageEmbed()
+        .setTitle(`Rollout Help`)
+        .setColor('#ffa13d')
+        .addFields(
+          {
+            name:  `!rollout <format> <frame rate> <mag length>`,
+            value: `Calculates the shoot time of a length of film at a given frame rate.\n
+                    Available formats:\n
+                    <8> - Super8mm\n
+                    <16> - 16mm\n
+                    <35> - 35mm 4-perf\n
+                    <353perf> - 35mm 3-perf\n
+                    <352perf> - 35mm 2-perf\n
+                    <65> - 65mm`
+          }
+        )
+        message.channel.send(embed);
+        return;
+      }
 
     //Help template
       // else if (command === "help" && args[0] === "") {
@@ -127,6 +150,7 @@ client.on(`ready`, () => {
                         version - Shows current CameraGeek version number. (For development purposes)\n`}
             )
           message.channel.send(embed);
+          return;
         }
         else {
           message.channel.send(`Sorry ${message.author}, it doesn't look like you're a developer. Contact one of them if you'd like to contribute to the project!`);
@@ -141,8 +165,8 @@ client.on(`ready`, () => {
         if (!args.length) {
           return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
         }
-
         message.channel.send(`Command name: ${command}\nArguments: ${args}`);
+        return;
       }
 
     //Start CameraGeek main functions
@@ -177,7 +201,7 @@ client.on(`ready`, () => {
                         +2 Diopter: ${dioTwoFt}ft.\n
                         +3 Diopter: ${dioThreeFt}ft.`}
             )
-            message.channel.send(embed);
+          message.channel.send(embed);
           return;
         }
 
@@ -202,7 +226,7 @@ client.on(`ready`, () => {
                         +2 Diopter: ${dioTwoIn}in.\n
                         +3 Diopter: ${dioThreeIn}in.`}
             )
-            message.channel.send(embed);
+          message.channel.send(embed);
           return;
         }
 
@@ -243,6 +267,7 @@ client.on(`ready`, () => {
               value: `${distanceFeet}ft is equal to ${distanceMeters}m.`}
           )
           message.channel.send(embed);
+          return;
       }
 
     //Converts meters into feet
@@ -260,6 +285,7 @@ client.on(`ready`, () => {
               value: `${distanceMeters}m is equal to ${distanceFeet}ft.`}
           )
           message.channel.send(embed);
+          return;
       }
 
     //Mic Check
@@ -268,16 +294,212 @@ client.on(`ready`, () => {
         return;
       }
 
-
     //Ping function
       if (command === "ping") {
         const timeTaken = Date.now() - message.createdTimestamp;
         message.reply(`Pong! This message had a latency of ${timeTaken}ms.`);
+        return;
+      }
+
+    //Rollout function
+      if (command === "rollout") {
+
+      let [format, fps, magSize] = args;
+      console.log(`User entered !rollout for ${format}mm film @${fps}fps, ${magSize}ft mag.`);
+
+      const firlRef = ['frames per foot', 'feet per minute @ 24fps']
+      const film8 = [80, 18]
+      const film16 = [40, 36]
+      const film35 = [16, 90]
+      const film353perf = [21.333, 67.501]
+      const film352perf = [32, 45]
+      const film65 = [12.8, 112.5]
+
+        if (!args.length) {
+          return message.channel.send(`You didn't provide a format (in mm), frame rate or a foot length, ${message.author}! Type "!help rollout" for command syntax.`);
+        }
+
+        if (format == '8') {
+          let secPerFoot = (film8[0] / fps);
+          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
+          // console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+          let magMinutes = Number(rolloutTime / 60).toFixed(0);
+          let magSeconds = Number(rolloutTime % 60).toFixed(2);
+          let shotFrames = Number(film8[0] * magSize).toFixed(0);
+          if (magMinutes > 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of Super8mm @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          if (magMinutes < 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of Super8mm @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          return;
+        }
+        if (format == '16') {
+          let secPerFoot = (film16[0] / fps);
+          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
+          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+          let magMinutes = Number(rolloutTime / 60).toFixed(0);
+          let magSeconds = Number(rolloutTime % 60).toFixed(2);
+          let shotFrames = Number(film16[0] * magSize).toFixed(0);
+          if (magMinutes > 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 16mm @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          if (magMinutes < 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 16mm @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          return;
+        }
+        if (format == '35') {
+          let secPerFoot = (film35[0] / fps);
+          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
+          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+          let magMinutes = Number(rolloutTime / 60).toFixed(0);
+          let magSeconds = Number(rolloutTime % 60).toFixed(2);
+          let shotFrames = Number(film35[0] * magSize).toFixed(0);
+          if (magMinutes > 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 35mm @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          if (magMinutes < 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 35mm @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          return;
+        }
+        if (format == '353perf') {
+          let secPerFoot = (film353perf[0] / fps);
+          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
+          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+          let magMinutes = Number(rolloutTime / 60);
+          let magSeconds = Number(rolloutTime % 60);
+          let shotFrames = Number(film353perf[0] * magSize).toFixed(0);
+          if (magMinutes > 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 35mm 3-perf @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          if (magMinutes < 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 35mm 3-perf @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          return;
+        }
+        if (format == '352perf') {
+          let secPerFoot = (film352perf[0] / fps);
+          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
+          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+          let magMinutes = Number(rolloutTime / 60);
+          let magSeconds = Number(rolloutTime % 60);
+          let shotFrames = Number(film352perf[0] * magSize).toFixed(0);
+          if (magMinutes > 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 35mm 2-perf @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          if (magMinutes < 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 35mm 2-perf @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          return;
+        }
+        if (format == '65') {
+          let secPerFoot = (film65[0] / fps);
+          let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
+          console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+          let magMinutes = Number(rolloutTime / 60).toFixed(0);
+          let magSeconds = Number(rolloutTime % 60).toFixed(2);
+          let shotFrames = Number(film65[0] * magSize).toFixed(0);
+          if (magMinutes > 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 65mm @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magMinutes).toFixed(0)}min ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          if (magMinutes < 1) {
+            const embed = new Discord.MessageEmbed()
+              .setColor('#ffa13d')
+              .setTitle(`${magSize}ft mag of 65mm @${fps}fps`)
+              .addFields(
+                  {name: `Mag will roll out in ${Number(magSeconds).toFixed(1)}sec.`,
+                  value: `In that time you can shoot up to ${shotFrames} frames!`}
+              )
+            message.channel.send(embed);
+          }
+          return;
+        }
+
       }
 
     //Version function
       if (command === "version") {
         message.reply(`CameraGeek is currently on ${config.version}!`);
+        return;
       }
 
   })
