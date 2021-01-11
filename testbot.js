@@ -2,6 +2,19 @@
 //A Discord bot for Camera Department
 //Written by Michael L. Foo
 //GitHub (https://github.com/michaellfoo/CameraGeek)
+// var forever = require('forever-monitor');
+
+// var child = new (forever.Monitor)('index.js', {
+//   max: 3,
+//   silent: true,
+//   args: []
+// });
+
+// child.on('exit', function () {
+//   console.log('index.js has exited after 3 restarts');
+// });
+
+// child.start();
 
 const Discord = require("discord.js");
 const config = require("./testConfig.json");
