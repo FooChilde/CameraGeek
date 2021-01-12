@@ -30,9 +30,16 @@ client.on(`ready`, () => {
 
   //Message functions
   client.on("message", function(message) {
+    let msgID = message.id;
+    let msgUser = message.author.tag;
+    let msgContent = message.content;
 
-  //Ignore other bots
+
+  //Ignore non-command messages & other bots
     if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  //Command logging  
+    console.log(`(${Date.now()}) ${msgUser} used command: ${msgContent}`);
 
   //Trim prefix from command and find args
     const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -163,7 +170,7 @@ client.on(`ready`, () => {
   //Devhelp function
     if (command === "dev") {
     if (message.member.roles.cache.find(r => r.name === "Developer")) {
-      console.log(`${Date.now()}: User is a dev, replying...`)
+      console.log(`${Date.now()}: ${msgUser} is a dev, replying...`)
       const embed = new Discord.MessageEmbed()
         .setTitle(`CameraGeek Developer Command Help`)
         .setColor('#ffa13d')
@@ -176,7 +183,15 @@ client.on(`ready`, () => {
       return;
     }
     else {
-      message.channel.send(`Sorry ${message.author}, it doesn't look like you're a developer. Contact one of them if you'd like to contribute to the project!`);
+      message.channel.send(`Sorry ${message.author}, it doesn't look like you're a developer. Contact one of them if you'd like to contribute to the project!`)
+      .then(msg => {
+          msg.delete({ timeout: 10000})
+        })
+    
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
       return;
     }
     }
@@ -186,7 +201,15 @@ client.on(`ready`, () => {
   //Tests for arguments
     else if (command === "args-info") {
     if (!args.length) {
-      return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+      message.channel.send(`You didn't provide any arguments, ${message.author}!`)
+        .then(msg => {
+          msg.delete({ timeout: 10000})
+        });
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
+      return;
     }
     message.channel.send(`Command name: ${command}\nArguments: ${args}`);
     return;
@@ -197,7 +220,16 @@ client.on(`ready`, () => {
   //Calculates close focus for diopters, works in inches, feet and meters
     else if (command === "diopter") {
     if (!args.length) {
-      return message.channel.send(`You didn't provide a distance unit and close focus, ${message.author}!`);
+      message.channel.send(`You didn't provide a distance unit and close focus, ${message.author}!`)
+      .then(msg => {
+          msg.delete({ timeout: 10000})
+        })
+    
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
+      return;
     }
 
     let [unit, closeFocus] = args;
@@ -275,7 +307,16 @@ client.on(`ready`, () => {
   //Converts feet into meters
     else if (command === "findmeters") {
     if (!args.length) {
-      return message.channel.send(`You didn't provide a distance in feet (decimal), ${message.author}!`);
+      message.channel.send(`You didn't provide a distance in feet (decimal), ${message.author}!`)
+      .then(msg => {
+          msg.delete({ timeout: 10000})
+        })
+    
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
+      return;
     }
 
     let [distanceFeet] = args;
@@ -292,7 +333,16 @@ client.on(`ready`, () => {
   //Converts meters into feet
     else if (command === "findfeet") {
     if (!args.length) {
-      return message.channel.send(`You didn't provide a distance in meters (decimal), ${message.author}!`);
+      message.channel.send(`You didn't provide a distance in meters (decimal), ${message.author}!`)
+      .then(msg => {
+          msg.delete({ timeout: 10000})
+        })
+    
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
+      return;
     }
 
     let [distanceMeters] = args;
@@ -308,13 +358,24 @@ client.on(`ready`, () => {
 
   //La Croix function
     else if (command === "lacroix") {
-      return message.react('797293122660597800');
+      let laCroix = "<:lacroix:797293051386134548>"
+      console.log(`${laCroix}`)
+      return message.channel.send(`${laCroix}`);
     }
 
   //Max FPS function
     else if (command === "maxfps") {
       if (!args.length) {
-        return message.channel.send(`You didn't provide a camera, ${message.author}!`);
+        message.channel.send(`You didn't provide a camera, ${message.author}!`)
+        .then(msg => {
+          msg.delete({ timeout: 10000})
+        })
+    
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
+      return;
       }
 
       //Start digital cameras
@@ -524,7 +585,15 @@ client.on(`ready`, () => {
   //Ping function
     if (command === "ping") {
     const timeTaken = Date.now() - message.createdTimestamp;
-    message.reply(`Pong! This message had a latency of ${timeTaken}ms.`);
+    message.reply(`Pong! This message had a latency of ${timeTaken}ms.`)
+    .then(msg => {
+          msg.delete({ timeout: 10000})
+        })
+    
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
     return;
     }
 
@@ -532,8 +601,7 @@ client.on(`ready`, () => {
     if (command === "rollout") {
 
     let [format, fps, magSize] = args;
-    console.log(`User entered \\rollout for ${format}mm film @${fps}fps, ${magSize}ft mag.`);
-
+    // console.log(`User entered \\rollout for ${format}mm film @${fps}fps, ${magSize}ft mag.`);
     const firlRef = ['frames per foot', 'feet per minute @ 24fps']
     const film8 = [80, 18]
     const film16 = [40, 36]
@@ -543,14 +611,23 @@ client.on(`ready`, () => {
     const film65 = [12.8, 112.5]
 
     if (!args.length) {
-      return message.channel.send(`You didn't provide a format (in mm), frame rate or a foot length, ${message.author}! Type "!help rollout" for command syntax.`);
+      message.channel.send(`You didn't provide a format (in mm), frame rate or a foot length, ${message.author}!`)
+      .then(msg => {
+          msg.delete({ timeout: 10000})
+        })
+    
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
+      return;
     }
 
     if (format == '8') {
       const rolloutFormat = "Super8mm";
       let secPerFoot = (film8[0] / fps);
       let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
-      console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+      // console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
       let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
       let magSeconds = Number(rolloutTime % 60).toFixed(2);
       let shotFrames = Number(film8[0] * magSize).toFixed(0);
@@ -578,7 +655,7 @@ client.on(`ready`, () => {
       const rolloutFormat = "16mm";
       let secPerFoot = (film16[0] / fps);
       let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
-      console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+      // console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
       let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
       let magSeconds = Number(rolloutTime % 60).toFixed(2);
       let shotFrames = Number(film16[0] * magSize).toFixed(0);
@@ -606,7 +683,7 @@ client.on(`ready`, () => {
       const rolloutFormat = "35mm 4-perf";
       let secPerFoot = (film35[0] / fps);
       let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
-      console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+      // console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
       let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
       let magSeconds = Number(rolloutTime % 60).toFixed(2);
       let shotFrames = Number(film35[0] * magSize).toFixed(0);
@@ -634,7 +711,7 @@ client.on(`ready`, () => {
       const rolloutFormat = "35mm 3-perf";
       let secPerFoot = (film353perf[0] / fps);
       let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
-      console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+      // console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
       let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
       let magSeconds = Number(rolloutTime % 60);
       let shotFrames = Number(film353perf[0] * magSize).toFixed(0);
@@ -662,7 +739,7 @@ client.on(`ready`, () => {
       const rolloutFormat = "35mm 2-perf";
       let secPerFoot = (film352perf[0] / fps);
       let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
-      console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+      // console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
       let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
       let magSeconds = Number(rolloutTime % 60);
       let shotFrames = Number(film352perf[0] * magSize).toFixed(0);
@@ -690,7 +767,7 @@ client.on(`ready`, () => {
       const rolloutFormat = "65mm";
       let secPerFoot = (film65[0] / fps);
       let rolloutTime = (secPerFoot * magSize); //rollout time in seconds
-      console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
+      // console.log(`Seconds per foot: ${secPerFoot}, rollout time: ${rolloutTime}sec.`);
       let magMinutes = Number((rolloutTime / 60) - ((rolloutTime % 60) / 100)).toFixed(0);
       let magSeconds = Number(rolloutTime % 60).toFixed(2);
       let shotFrames = Number(film65[0] * magSize).toFixed(0);
@@ -719,7 +796,15 @@ client.on(`ready`, () => {
 
   //Version function
     if (command === "version") {
-    message.reply(`CameraGeek is currently on ${config.version}!`);
+    message.reply(`CameraGeek is currently on ${config.version}!`)
+    .then(msg => {
+          msg.delete({ timeout: 10000})
+        })
+    
+      message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+        .then(messages => {
+          messages.first().delete();
+        });
     return;
     }
 
