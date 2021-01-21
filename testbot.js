@@ -211,7 +211,7 @@ client.on(`ready`, () => {
 			  });
 		  return;
 		}
-		message.channel.send(`Command name: ${command}\nArguments: ${args}`);
+		message.channel.send(`Command name: ${command}\nArguments: \n${args.join(' ')}`);
 		return;
 	  }
 
@@ -597,12 +597,39 @@ client.on(`ready`, () => {
 		return;
 	  }
 
+	//Rolemembers function
+		if (command === "rolemembers") {
+
+			let roleName = args.join(' ');
+			const guildMembers = message.guild.members.cache;
+			const guildRole = message.guild.roles.cache.find(role => role.name == roleName);
+      const roleMembers = message.guild.members.cache.filter(member => member.roles.cache.find(role => role == guildRole)).map(member => member.user.id);
+      // console.log(`${roleMembers.join("\n")}`);
+      const embed = new Discord.MessageEmbed()
+				.setColor('#ffa13d')
+			  .setFooter("Prefix: \\ \nThis bot is still a work in progress", `https://raw.githubusercontent.com/michaellfoo/CameraGeek/v0.1.1/logo.png?token=ADAIWNT7NK5V3MM526NAFNK77S57G`)
+			  .setTimestamp()
+				.addField(`Users with the role ${roleName}:`, `${`<@` + roleMembers.join(">\n<@") + `>`}`, false)
+      // message.author.send(`Users with the role ${roleName}:\n${`<@` + roleMembers.join(">\n<@") + `>`}`);
+      message.author.send(embed);
+      message.channel.send(`A direct message has been sent to ${message.author}. Check your DMs!`)
+	      .then(msg => {
+			  		msg.delete({ timeout: 10000})
+			  	})
+			
+		  	message.channel.messages.fetch({around: `${msgID}`, limit: 1})
+				  .then(messages => {
+				    messages.first().delete();
+				  });
+			return;
+		}
+
 	//Rollout function
 	  if (command === "rollout") {
 
 	  let [format, fps, magSize] = args;
 	  // console.log(`User entered \\rollout for ${format}mm film @${fps}fps, ${magSize}ft mag.`);
-	  const firlRef = ['frames per foot', 'feet per minute @ 24fps']
+	  const filmRef = ['frames per foot', 'feet per minute @ 24fps']
 	  const film8 = [80, 18]
 	  const film16 = [40, 36]
 	  const film35 = [16, 90]
