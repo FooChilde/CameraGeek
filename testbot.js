@@ -108,7 +108,7 @@ client.on(`ready`, () => {
 			  .setTimestamp()
 				.addField(`\\maxfps <camera>`, `Displays the maximum frames per second in different sensor modes for a given camera.`, false)
 				.addField(`Available Digital cameras:`, `----------`, false)
-				.addField(`<mini>`, `ARRI ALEXA Mini`, true)
+				.addField(`<alexamini>`, `ARRI ALEXA Mini`, true)
 				.addField(`<alexaxt>`, `ARRI ALEXA XT`, true)
 				.addField(`<alexasxt>`, `ARRI ALEXA SXT W`, true)
 				.addField(`<alexa65>`, `ARRI ALEXA 65`, true)

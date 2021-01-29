@@ -20,7 +20,7 @@
 Join the CameraGeek discord to get a direct line of communication with the dev for suggestions and bug reports. 
 Click the widget below to join.
 
-[![discord](https://img.shields.io/discord/451495220438106112.svg?style=for-the-badge&logo=discord&colorB=7289DA)](https://discord.gg/ehSAYNnVcs)
+[![discord](https://img.shields.io/discord/796943368595832873?style=for-the-badge&logo=discord&colorB=7289DA)](https://discord.gg/ehSAYNnVcs)
 
 <!-- PROJECT LOGO -->
 <br />
