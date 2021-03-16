@@ -10,7 +10,7 @@
 ***
 ***
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** michaellfoo, CameraGeek, twitter_handle, email, CameraGeek, A Discord bot for Camera Department.
+*** FooChilde, CameraGeek, twitter_handle, email, CameraGeek, A Discord bot for Camera Department.
 -->
 
 
@@ -25,7 +25,7 @@ Click the widget below to join.
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://https://github.com/michaellfoo/CameraGeek">
+  <a href="https://https://github.com/FooChilde/CameraGeek">
     <img src="./logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -34,14 +34,14 @@ Click the widget below to join.
   <p align="center">
     A Discord bot for Camera Department.
     <br />
-    <a href="https://github.com/michaellfoo/CameraGeek"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/FooChilde/CameraGeek"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/michaellfoo/CameraGeek">View Demo</a>
+    <a href="https://github.com/FooChilde/CameraGeek">View Demo</a>
     ·
-    <a href="https://github.com/michaellfoo/CameraGeek/issues">Report Bug</a>
+    <a href="https://github.com/FooChilde/CameraGeek/issues">Report Bug</a>
     ·
-    <a href="https://github.com/michaellfoo/CameraGeek/issues">Request Feature</a>
+    <a href="https://github.com/FooChilde/CameraGeek/issues">Request Feature</a>
   </p>
 </p>
 
@@ -106,7 +106,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/michaellfoo/CameraGeek.git
+   git clone https://github.com/FooChilde/CameraGeek.git
    ```
 2. Install NPM packages
    ```sh
@@ -120,14 +120,14 @@ This is an example of how to list things you need to use the software and how to
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://github.com/michaellfoo/CameraGeek/)_
+_For more examples, please refer to the [Documentation](https://github.com/FooChilde/CameraGeek/)_
 
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/michaellfoo/CameraGeek/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/FooChilde/CameraGeek/issues) for a list of proposed features (and known issues).
 
 
 
@@ -156,7 +156,7 @@ Distributed under the GNU 3.0 License. See `LICENSE` for more information.
 
 Michael L. Foo - [@Foo_Childe](https://discord.com/users/Foo_Childe#8331) - Discord
 
-Project Link: [https://github.com/michaellfoo/CameraGeek](https://github.com/michaellfoo/CameraGeek)
+Project Link: [https://github.com/FooChilde/CameraGeek](https://github.com/FooChilde/CameraGeek)
 
 
 
@@ -173,15 +173,15 @@ Project Link: [https://github.com/michaellfoo/CameraGeek](https://github.com/mic
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/michaellfoo/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/michaellfoo/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/michaellfoo/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/michaellfoo/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/michaellfoo/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/michaellfoo/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/michaellfoo/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/michaellfoo/repo/issues
-[license-shield]: https://img.shields.io/github/license/michaellfoo/repo.svg?style=for-the-badge
-[license-url]: https://github.com/michaellfoo/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/FooChilde/repo.svg?style=for-the-badge
+[contributors-url]: https://github.com/FooChilde/repo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/FooChilde/repo.svg?style=for-the-badge
+[forks-url]: https://github.com/FooChilde/repo/network/members
+[stars-shield]: https://img.shields.io/github/stars/FooChilde/repo.svg?style=for-the-badge
+[stars-url]: https://github.com/FooChilde/repo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/FooChilde/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/FooChilde/repo/issues
+[license-shield]: https://img.shields.io/github/license/FooChilde/repo.svg?style=for-the-badge
+[license-url]: https://github.com/FooChilde/repo/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/michaellfoo
+[linkedin-url]: https://linkedin.com/in/FooChilde
